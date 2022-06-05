@@ -8,9 +8,9 @@
   <p align="center">
     A MVC (Model-View-Controller) lua framework for apache2 web servers.
     <br>
-    <a href="https://https://github.com/davidn000/luaflow/issues/new?template=bug.md">Report bug</a>
+    <a href="https://github.com/davidn000/luaflow/issues/new?template=bug.md">Report bug</a>
     ·
-    <a href="https://https://github.com/davidn000/luaflow/issues/new?template=feature.md&labels=feature">Request feature</a>
+    <a href="https://github.com/davidn000/luaflow/issues/new?template=feature.md&labels=feature">Request feature</a>
   </p>
 </p>
 

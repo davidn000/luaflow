@@ -3,6 +3,8 @@ local config = require("core/config")
 local core = require("core/core")
 
 function handle(r)
+   
+    r:flush()
     r.content_type = "text/html"
     core.request = r
     --r:puts("Hello Lua World!\n")
@@ -11,7 +13,7 @@ function handle(r)
         local get_var = r:parseargs()
         
         --r.filename = "C:/Xampp/htdocs/Lua/views/" .. get_var["p"] .. ".lua"
-        r:puts(dofile(config.src_directory .. config.views_directory  .. get_var["lua_webpage_page_request_variable"] .. ".lua"):build())
+        r:write(dofile(config.src_directory .. config.views_directory  .. get_var["lua_webpage_page_request_variable"] .. ".lua"):build())
         for k, v in pairs( get_var ) do
             --r:puts( string.format("%s: %s\n", k, v) )
         end

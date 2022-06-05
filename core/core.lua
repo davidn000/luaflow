@@ -2,21 +2,17 @@
     core entry
 ]]
 
-
+require "string"
 local core = {}
 core.__index = core
 core.request = nil
 
 
-core.head = {
-    title = "My title",
-    stylesheets = {
-        "path/to/stylesheet.css"
-    },
+core.variables = {}
+core.variables.__index = core.variables
 
-    etc = {
-        "<extra_tag/>"
-    },
+core.head = {
+
 
 }
 
@@ -26,27 +22,42 @@ core.style = [[
     }
 ]]
 
+
+
+
+
+
+
+
+-- Main Core --
+
+
 function core:print(data)
-    core.request:puts(data)
+    core.request:write(data)
 end
 
 function core:render()
+    self.request:flush()
     return [[]]
 end
 
+
 function core:build()
-    return [[
-        <html>
-    ]]..self:build_head()..self:render()..[[
-        </html>
-    ]]
+    
+    return self:build_head()
+    ..self:b_render(self:render())
+    ..self:build_foot()
 end
 
+-- Helpers --
 function core:build_head()
-    local build = ""
+    local build = "<html>"
     build = build .. "<head>"
 
-    build = build .. "<title>" .. self.head.title .. "</title>"
+    if self.head.title then
+        build = build .. "<title>" .. self.head.title .. "</title>"
+    end
+
 
     if self.head.etc then
         for _,v in pairs(self.head.etc) do
@@ -54,10 +65,14 @@ function core:build_head()
         end      
     end
 
+    
 
     -- Building Styles --
 
-    build = build .. "<style type='text/css'>" .. self.style .. "</style>"
+    if self.style then 
+        build = build .. "<style type='text/css'>" .. self.style .. "</style>"
+    end
+
 
     if self.head.stylesheets then
         for _,x in pairs(self.head.stylesheets) do
@@ -72,5 +87,51 @@ function core:build_head()
     return build
 
 end
+
+function core:build_foot()
+    return "</html>"
+end
+
+function core:b_render(render_code)
+
+    local s = render_code
+    for i,v in pairs(self.variables) do
+    
+        s = string.gsub(s, string.format("{{%s}}", i), self.variables[i])
+    end
+    
+    return s
+
+end
+
+function core:render_templates()
+    local str = ""
+    for i,v in pairs(self.variables) do
+        if i.render then
+            str = str .. i:render()
+        end
+    end
+end
+
+
+-- End Helpers --
+
+
+-- Static Helpers --
+function core.table_dump(o)
+    if type(o) == 'table' then
+       local s = '{ '
+       for k,v in pairs(o) do
+          if type(k) ~= 'number' then k = '"'..k..'"' end
+          s = s .. '['..k..'] = ' .. core.table_dump(v) .. ','
+       end
+       return s .. '} '
+    else
+       return tostring(o)
+    end
+ end
+
+--- End Static Helpers --
+
 
 return core

@@ -9,7 +9,14 @@ local core = require("core/core")
 local App = {}
 setmetatable( App, { __index = core } )
 
--- Will load templates in order
+
+
+App.variables = {
+    x = 1,
+    y = 2,
+    z = 3
+}
+
 App.head = {
     title = "boom title",
     stylesheets = {
@@ -26,6 +33,8 @@ App.style = [[
         color: green;
     }
 ]]
+
+
 
 
 --[[
