@@ -8,9 +8,9 @@
   <p align="center">
     A MVC (Model-View-Controller) lua framework for apache2 web servers.
     <br>
-    <a href="https://https://github.com/davidn000/luaflow/issues/new?template=bug.md">Report bug</a>
+    <a href="https://github.com/davidn000/luaflow/issues/new?template=bug.md">Report bug</a>
     ·
-    <a href="https://https://github.com/davidn000/luaflow/issues/new?template=feature.md&labels=feature">Request feature</a>
+    <a href="https://github.com/davidn000/luaflow/issues/new?template=feature.md&labels=feature">Request feature</a>
   </p>
 </p>
 
@@ -74,6 +74,6 @@ Contributing is open.
 
 ## Copyright and license
 
-Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
+Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
 
 Enjoy :smiley:
