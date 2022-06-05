@@ -23,7 +23,6 @@
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
-- [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
 
@@ -72,12 +71,9 @@ Contributing is open.
 
 - <https://github.com/davidn000>
 
-## Thanks
-
-n/a
 
 ## Copyright and license
 
-Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
+Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
 
 Enjoy :smiley:
