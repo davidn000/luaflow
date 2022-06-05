@@ -23,7 +23,6 @@
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
-- [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
 
@@ -72,9 +71,6 @@ Contributing is open.
 
 - <https://github.com/davidn000>
 
-## Thanks
-
-n/a
 
 ## Copyright and license
 
