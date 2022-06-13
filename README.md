@@ -19,6 +19,7 @@
 
 - [About](#about)
 - [Status](#status)
+- [Get Started](#get-started)
 - [Todo](#Todo)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
@@ -28,8 +29,7 @@
 
 ## About
 
-I didin't like any of the existing frameworks so this project is my attempt at brining lua into web programming.  
-Currently I'm using apache2's built in module 'mod_lua'. This module allows the server to parse lua files. You can enable this module by adding ``LoadModule lua_module modules/mod_lua.so`` to your ``httpd.conf`` file for apache2. 
+Luaflow is a web framework for Lua that revolves around an object orientated building process designed for agile development. Currently I'm using apache2's built in module 'mod_lua'. This module allows the server to parse lua files. You can enable this module by adding ``LoadModule lua_module modules/mod_lua.so`` to your ``httpd.conf`` file for apache2. 
 
 
 - XAMPP httpd.conf: xampp/apache/conf/httpd.conf
@@ -49,11 +49,34 @@ LuaCodeCache stat
 Currnetly a bare bones functionality is implmented.
 
 
+## Get Started
+
+To get started locate your ``httpd.conf`` file for apache, and add ``LoadModule lua_module modules/mod_lua.so``. I added this text where the other LoadModule's were located. Clone the repo and build your views. **A full documentation guide is coming soon**. 
+
+### Documentation
+
+Documentation revolving Luaflow.
+
+#### Basic
+
+All Luaflow apps consist of two parts: views, and templates. A view is a page within your app, and the initial index page of your app will be ``App.lua``. 
+
+Each view is a subclass of Luaflow's core class (luaflow/core.lua) and consists of 3 main variables: 'core.variables', 'core.head', 'core.style'. All the variables that are apart of your view will be held in the variables table, the views' html head contents are set by the head table (title, stylesheets, or etc/other), and all extra styles will be held as a string within the style variable.
+
+The core class will build and render the string returned by the view's 'render' method. The render method will replace all varibles nested within double curly brackets ( ex. {{variable_name}} ) with the variables value.
+
+A template is much like a view, except it can be rendered within views many seperate times.
+
+
+
 ## Todo
 
 Here is what's on my todo list:
 
 ```text
+
+- Websocket state managment
+- Database class
 
 ```
 

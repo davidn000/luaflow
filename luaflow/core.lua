@@ -17,9 +17,7 @@ core.head = {
 }
 
 core.style = [[
-    h1 {
-        font-color: green;
-    }
+
 ]]
 
 
