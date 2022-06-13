@@ -1,6 +1,6 @@
 <p align="center">
   <a href="./">
-    <img src="https://svgshare.com/i/iGL.svg" alt="Logo" width=156 height=75>
+    <img src="https://svgshare.com/i/iGL.svg" alt="Logo" >
   </a>
 
   <h3 align="center">Luaflow</h3>
