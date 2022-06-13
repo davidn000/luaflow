@@ -1,6 +1,6 @@
 <p align="center">
   <a href="./">
-    <iframe src='https://svgshare.com/f/iGL' width=100% height=100% ></iframe>
+    <img src="https://svgshare.com/s/iGL" />
   </a>
 
   <h3 align="center">Luaflow</h3>
