@@ -29,7 +29,7 @@
 
 ## About
 
-Luaflow is a web framework for Lua that revolves around an object orientated building process designed for agile development. Currently I'm using apache2's built in module 'mod_lua'. This module allows the server to parse lua files. You can enable this module by adding ``LoadModule lua_module modules/mod_lua.so`` to your ``httpd.conf`` file for apache2. 
+Luaflow is a web framework for Lua that revolves around an object orientated building process designed for agile web development. Currently I'm using apache2's built in module 'mod_lua' but there are plans to bring Luaflow to nginx and other webservers. mod_lua allows the server to parse lua files. You can enable this module by adding ``LoadModule lua_module modules/mod_lua.so`` to your ``httpd.conf`` file for apache2. 
 
 
 - XAMPP httpd.conf: xampp/apache/conf/httpd.conf
@@ -51,7 +51,7 @@ Currnetly a bare bones functionality is implmented.
 
 ## Get Started
 
-To get started locate your ``httpd.conf`` file for apache, and add ``LoadModule lua_module modules/mod_lua.so``. I added this text where the other LoadModule's were located. Clone the repo and build your views. **A full documentation guide is coming soon**. 
+To get started locate your ``httpd.conf`` file for apache, and add ``LoadModule lua_module modules/mod_lua.so``. I added this text where the other LoadModule's were located. Clone the entire repo and go into ``luaflow/config.lua`` and change the 'src_directory' value to where the absolute path to the  webpages' directory (where .htaccess is), also go into ``luaflow/router.lua`` and change ``package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua'`` to ``package.path = package.path .. ';absolute/path/that/is/in/config/?.lua'``. **A full documentation guide is coming soon**. 
 
 ### Documentation
 
@@ -77,6 +77,7 @@ Here is what's on my todo list:
 
 - Websocket state managment
 - Database class
+- Custom routing
 
 ```
 
