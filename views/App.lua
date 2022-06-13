@@ -7,13 +7,13 @@ local example = require("templates/example_template")
 -- Templates --
 
 local App = {}
-setmetatable( App, { __index = core } )
+setmetatable( App, { __index = core } ) -- setting parent class as core
 
 
-
+-- All variables of App --
 App.variables = {
     -- Load Templates --
-    example = example:build(App.variables), -- You must build 
+    example = example:build(App.variables), -- You must build and pass variables if you want the template to have access to this view's variables
     -- Load Templates --
 
     -- Main Variables -- 

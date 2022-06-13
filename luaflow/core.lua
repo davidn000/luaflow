@@ -2,7 +2,7 @@
     core entry
 ]]
 
-require "string"
+
 local core = {}
 core.__index = core
 core.request = nil
@@ -22,14 +22,13 @@ core.style = [[
 
 
 local function luaflow_error(err)
-    core.request:write( "ERROR:", err )
+    core.request:write("ERROR:", err)
 end
-
-
 
 --  Util core --
 
 local function recurrsive_search(tables, str_)
+    -- Docs coming soon
     local table_of_strings = {}
     local str
     for i, q in pairs(tables) do
@@ -62,7 +61,7 @@ local function recurrsive_search(tables, str_)
                     _G[v] = t_Val
                 end
             else
-                
+
             end
 
         else
@@ -75,6 +74,7 @@ local function recurrsive_search(tables, str_)
 end
 
 local function search_variables(variables)
+    -- Docs coming soon
     local table_of_strings = {}
     for i, q in pairs(variables) do
         local c = type(variables[i]) == "table"
@@ -99,7 +99,6 @@ local function search_variables(variables)
     return table_of_strings
 end
 
-
 -- Util core --
 
 
@@ -110,21 +109,22 @@ end
 -- Main Core --
 
 
-function core:print(data)
+function core:print(data) -- print to screen. much like echo of php or document.write of js
     core.request:write(data)
 end
 
 function core:render()
-    self.request:flush()
+    self.request:flush() -- clear buffer bc mod_lua caches weirdly 
     return [[]]
 end
 
-
 function core:build()
-    
-    return self:build_head()
-    ..self:b_render(self:render())
-    ..self:build_foot()
+    -- Builds view --
+    return self:build_head() -- building the head--
+        ..
+        self:b_render(self:render())
+        -- B_render takes the strings and replaces all {{variable}} with its corresponding value
+        .. self:build_foot() -- building footer
 end
 
 -- Helpers --
@@ -138,24 +138,24 @@ function core:build_head()
 
 
     if self.head.etc then
-        for _,v in pairs(self.head.etc) do
+        for _, v in pairs(self.head.etc) do
             build = build .. v
-        end      
+        end
     end
 
-    
+
 
     -- Building Styles --
 
-    if self.style then 
+    if self.style then
         build = build .. "<style type='text/css'>" .. self.style .. "</style>"
     end
 
 
     if self.head.stylesheets then
-        for _,x in pairs(self.head.stylesheets) do
-            build = build.. string.format("<link rel='stylesheet' href='%s'>", x)
-        end     
+        for _, x in pairs(self.head.stylesheets) do
+            build = build .. string.format("<link rel='stylesheet' href='%s'>", x)
+        end
     end
 
     -- Building Styles End --
@@ -175,45 +175,25 @@ function core:b_render(render_code)
     local s = render_code
     local a = search_variables(self.variables)
 
-
-    for i,v in ipairs(a) do
-        
-        s = string.gsub(s, string.format("{{%s}}", a[i]), _G[a[i]])
-
+    for i, v in ipairs(a) do
+        s = string.gsub(s, string.format("{{%s}}", a[i]), _G[a[i]]) -- I know this _G[a[i]] looks ugly, but trust me its required.
     end
-    
+
     return s
 
 end
 
 function core:render_templates()
     local str = ""
-    for i,v in pairs(self.variables) do
+    for i, v in pairs(self.variables) do
         if i.render then
             str = str .. i:render()
         end
     end
 end
 
-
 -- End Helpers --
 
-
--- Static Helpers --
-function core.table_dump(o)
-    if type(o) == 'table' then
-       local s = '{ '
-       for k,v in pairs(o) do
-          if type(k) ~= 'number' then k = '"'..k..'"' end
-          s = s .. '['..k..'] = ' .. core.table_dump(v) .. ','
-       end
-       return s .. '} '
-    else
-       return tostring(o)
-    end
- end
-
---- End Static Helpers --
 
 
 return core
