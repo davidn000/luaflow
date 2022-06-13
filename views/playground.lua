@@ -1,6 +1,6 @@
 require "string"
 
-local core = require("core/core")
+local core = require("luaflow/core")
 local test = require("templates/test_template")
 
 local playground = {}
@@ -35,7 +35,7 @@ function playground:render()
     -- pass on variables to template
 
     local a = [[
-        {{test_t}}
+        <h1><b>hello {{firstname}}, {{lastname}}<//b></h1>
     ]]
    -- Loads variable
    

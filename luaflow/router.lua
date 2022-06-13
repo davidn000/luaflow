@@ -1,6 +1,6 @@
-package.path = package.path .. ';C:/xampp/htdocs/Lua/?.lua'
-local config = require("core/config")
-local core = require("core/core")
+package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua'
+local config = require("luaflow/config")
+local core = require("luaflow/core")
 
 function handle(r)
    

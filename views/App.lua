@@ -1,9 +1,9 @@
 -- App --
-local core = require("core/core")
+local core = require("luaflow/core")
 -- App --
 
 -- Templates --
-
+local test_Template = require("templates/test_template")
 -- Templates --
 
 local App = {}
@@ -12,9 +12,25 @@ setmetatable( App, { __index = core } )
 
 
 App.variables = {
-    x = 1,
+    test = test_Template:build(App.variables),
+
+    x = {
+        name="object",
+        val = {
+            nested = "true"
+        }
+    },
     y = 2,
-    z = 3
+    z = 3,
+
+    -- pass to templates --
+    t = {
+        mnb = {
+            blah = "none"
+        },
+        first_name = "Davood",
+        last_name = "Najafi"
+    }
 }
 
 App.head = {
@@ -46,7 +62,7 @@ The function below will be called whenever this view is loaded.
 function App:render()  
     return
     [[
-        <h1>hello world! this is from a lua script</h1>
+        {{t.mnb.blah}}
     ]]
 end
 

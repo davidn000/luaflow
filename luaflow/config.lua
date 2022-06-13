@@ -1,7 +1,7 @@
 local config = {}
 config.__index = config
 
-config.src_directory = "C:/xampp/htdocs/Lua/"
+config.src_directory = "C:/xampp/htdocs/luaflow/"
 config.views_directory = "views/"
 
 --[[
