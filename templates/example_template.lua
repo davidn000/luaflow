@@ -4,7 +4,7 @@ local example_template = {}
 setmetatable( example_template, { __index = template } )
 
 example_template.variables = {
-    some_var="some val"
+    some_var="some val" -- Takes precedence over parent variable
 }
 
 function example_template:render()

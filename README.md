@@ -51,7 +51,7 @@ Currnetly a bare bones functionality is implmented.
 
 ## Get Started
 
-To get started locate your ``httpd.conf`` file for apache, and add ``LoadModule lua_module modules/mod_lua.so``. I added this text where the other LoadModule's were located. Clone the entire repo and go into ``luaflow/config.lua`` and change the 'src_directory' value to where the absolute path to the  webpages' directory (where .htaccess is), also go into ``luaflow/router.lua`` and change ``package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua'`` to ``package.path = package.path .. ';absolute/path/that/is/in/config/?.lua'``. **A full documentation guide is coming soon**. 
+To get started locate your ``httpd.conf`` file for apache, and add ``LoadModule lua_module modules/mod_lua.so``. I added this text where the other LoadModule's were located. Clone the entire repo and go into ``luaflow/config.lua`` and change the 'src_directory' value to the absolute path to the webpages' directory (where .htaccess is), also go into ``luaflow/router.lua`` and change ``package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua'`` to ``package.path = package.path .. ';absolute/path/that/is/in/config/?.lua'``. **A full documentation guide is coming soon**. 
 
 ### Documentation
 
