@@ -110,7 +110,7 @@ end
 
 
 function core:print(data) -- print to screen. much like echo of php or document.write of js
-    core.request:write(data)
+    self.request:write(data)
 end
 
 function core:render()
@@ -176,7 +176,7 @@ function core:b_render(render_code)
     local a = search_variables(self.variables)
 
     for i, v in ipairs(a) do
-        s = string.gsub(s, string.format("{{%s}}", a[i]), _G[a[i]]) -- I know this _G[a[i]] looks ugly, but trust me its required.
+        s = string.gsub(s, string.format("{{%s}}", a[i]), _G[a[i]]) -- I know this _G[a[i]] looks ugly but i'm planning on releaseing full docs.
     end
 
     return s

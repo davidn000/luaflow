@@ -1,7 +1,14 @@
-package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua'
+package.path = package.path .. ';C:/xampp/htdocs/luaflow/?.lua' -- change C:/xampp/htdocs/luaflow to the root directory. 
+--(Parent of views, templates, and luaflow folder)
+
+
+-- Luaflow --
 local config = require("luaflow/config")
 local core = require("luaflow/core")
+-- Luaflow --
 
+
+-- This handle request is processed by apache2's module modlua --
 function handle(r)
    
     r:flush() -- clear buffer
@@ -32,9 +39,7 @@ function handle(r)
        
 
     elseif r.method == 'POST' then
-        for k, v in pairs( r:parsebody() ) do
-            r:puts( string.format("%s: %s\n", k, v) )
-        end
+        -- implement something
     else
         
     end
