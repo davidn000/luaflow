@@ -98,6 +98,6 @@ Contributing is open.
 
 ## Copyright and license
 
-Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
+Code released under the [MIT License](https://https://github.com/davidn000/luaflow/blob/master/LICENSE).
 
 Enjoy :smiley:
